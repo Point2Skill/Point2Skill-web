@@ -47,18 +47,33 @@ Diffusion Primitives for Robot Control</h2>
       </video>
     </div>
 
-    <p class="tagline">
-      Interfsce for selecting the goal a 3D target point. Point2Skill turns it into a reusable robot skill.
-    </p>
+<p class="tagline">
+  An interactive interface for selecting 3D target points and turning them into reusable robot skills.
+</p>
   </header>
 
   <section id="abstract" class="section">
-    <h2>Abstract</h2>
-    <p>
-Effective robot manipulation requires translating high-level intent into precise physical interaction. A common approach is to use language as a task specification, with vision-language models providing a flexible interface for interpreting instructions and reasoning about the scene. However, reliable execution often requires more than semantic task understanding: manipulation policies benefit from explicit geometric goals that specify where and how the robot should interact with the environment. We introduce <b>Point2Skill</b>, a framework for specifying
-reusable manipulation skills through 3D target points. Each primitive is modeled as a Diffusion Transformer policy conditioned on a goal point via adaptive Layer Normalization, allowing geometric intent to modulate the denoising process with out the overhead of cross-attention. We instantiate a library of primitives, including Pick, <i>Place<i>, <i>Insert<i>, <i>Open<i>, and <i>Close<i>, and provide an interactive click-based interface through which either a human or a Vision-Language Model can select. Do not distribute. the target point. This point-based parameterization abstracts skills away from object identity, enabling a single primitive to generalize across object categories and novel instances. By separating task-level reasoning from motion generation, the proposed framework supports reuse and composition of manipulation skills. We further show that Vision-Language Models can sequence goal-conditioned primitives to perform long-horizon manipulation tasks. Experiments on a Franka robot across multiple tasks and objects demonstrate strong generalization to unseen objects while enabling reliable execution of composed behaviors
-    </p>
-  </section>
+  <h2>Abstract</h2>
+  <p>
+    Effective robot manipulation requires translating high-level intent into precise physical interaction.
+    A common approach is to use language as a task specification, with vision-language models providing
+    a flexible interface for interpreting instructions and reasoning about the scene. However, reliable
+    execution often requires more than semantic task understanding: manipulation policies benefit from
+    explicit geometric goals that specify where and how the robot should interact with the environment.
+    We introduce <b>Point2Skill</b>, a framework for specifying reusable manipulation skills through
+    3D target points. Each primitive is modeled as a Diffusion Transformer policy conditioned on a goal
+    point via adaptive Layer Normalization, allowing geometric intent to modulate the denoising process
+    without the overhead of cross-attention. We instantiate a library of primitives, including
+    <i>Pick</i>, <i>Place</i>, <i>Insert</i>, <i>Open</i>, and <i>Close</i>, and provide an interactive
+    click-based interface through which either a human or a Vision-Language Model can select the target
+    point. This point-based parameterization abstracts skills away from object identity, enabling a
+    single primitive to generalize across object categories and novel instances. By separating task-level
+    reasoning from motion generation, the proposed framework supports reuse and composition of manipulation
+    skills. We further show that Vision-Language Models can sequence goal-conditioned primitives to perform
+    long-horizon manipulation tasks. Experiments on a Franka robot across multiple tasks and objects
+    demonstrate reliable execution of composed behaviors.
+  </p>
+</section>
 
   <section id="method" class="section">
     <h2>Method Overview</h2>
@@ -91,11 +106,10 @@ reusable manipulation skills through 3D target points. Each primitive is modeled
 
     <img src="assets/architecture_full.png" alt="Point2Skill architecture" class="wide-image" />
   </section>
-
 <section id="skills" class="section">
   <h2>Primitive Skills</h2>
   <p class="section-intro">
-    Point2Skill learns a library of reusable goal-conditioned primitives. Each primitive receives visual observations, robot proprioception, and a user- or VLM-selected 3D goal point, and outputs an action trajectory through a goal-conditioned Diffusion Transformer.
+    Point2Skill learns a reusable library of goal-conditioned manipulation primitives.
   </p>
 
   <div class="video-grid">
@@ -104,7 +118,7 @@ reusable manipulation skills through 3D target points. Each primitive is modeled
         <source src="assets/videos/pick.mp4" type="video/mp4" />
       </video>
       <h3>Pick</h3>
-      <p>A 3D goal point specifies where the robot should grasp.</p>
+      <p>Grasp the selected object from a 3D target point.</p>
     </div>
 
     <div class="video-card">
@@ -112,7 +126,7 @@ reusable manipulation skills through 3D target points. Each primitive is modeled
         <source src="assets/videos/place.mp4" type="video/mp4" />
       </video>
       <h3>Place</h3>
-      <p>The goal point defines the target placement location.</p>
+      <p>Move the object to a goal-specified target region.</p>
     </div>
 
     <div class="video-card">
@@ -120,7 +134,7 @@ reusable manipulation skills through 3D target points. Each primitive is modeled
         <source src="assets/videos/insert.mp4" type="video/mp4" />
       </video>
       <h3>Insert</h3>
-      <p>The policy aligns the object with a constrained receptacle.</p>
+      <p>Align and insert objects into constrained receptacles.</p>
     </div>
 
     <div class="video-card">
@@ -128,48 +142,49 @@ reusable manipulation skills through 3D target points. Each primitive is modeled
         <source src="assets/videos/open_close.mp4" type="video/mp4" />
       </video>
       <h3>Open / Close</h3>
-      <p>The goal point anchors interaction around the handle.</p>
+      <p>Interact with articulated objects through goal-conditioned contact.</p>
     </div>
   </div>
+</section>
 
-  <div class="architecture-card">
-    <div class="architecture-text">
-      <h3>Shared Goal-Conditioned Diffusion Policy</h3>
-      <p>
-        All primitives share the same policy structure. Multi-view wrist observations and proprioception are encoded together with a 3D goal point. The goal embedding is combined with the diffusion timestep and injected into the Diffusion Transformer through adaLN, allowing the target interaction point to modulate the denoising process.
-      </p>
-    </div>
+  <section id="architecture" class="section architecture-section">
+  <h2>Policy Architecture</h2>
+  <p class="section-intro">
+    Each primitive is implemented as a goal-conditioned Diffusion Transformer.
+    Multi-view observations, proprioception, and a 3D goal point are encoded and used to predict an action trajectory.
+  </p>
 
+  <div class="architecture-panel">
     <img
       src="assets/architecture_cover.png"
       alt="Point2Skill goal-conditioned diffusion policy architecture"
       class="architecture-image"
     />
+  </div>
 
-    <div class="architecture-points">
-      <div>
-        <span>01</span>
-        <h4>Multi-view observations</h4>
-        <p>Fisheye RGB and wrist RGB-D images provide scene context and local geometry.</p>
-      </div>
+  <div class="architecture-summary">
+    <div class="summary-item">
+      <span>01</span>
+      <h3>Observations</h3>
+      <p>Fisheye RGB and wrist RGB-D images encode scene context and local geometry.</p>
+    </div>
 
-      <div>
-        <span>02</span>
-        <h4>3D goal point</h4>
-        <p>A user or VLM click is lifted to 3D and used as the geometric target.</p>
-      </div>
+    <div class="summary-item">
+      <span>02</span>
+      <h3>3D Goal Point</h3>
+      <p>A user or VLM-selected point specifies where the robot should interact.</p>
+    </div>
 
-      <div>
-        <span>03</span>
-        <h4>adaLN conditioning</h4>
-        <p>The goal and timestep embeddings modulate the DiT denoising blocks.</p>
-      </div>
+    <div class="summary-item">
+      <span>03</span>
+      <h3>adaLN Conditioning</h3>
+      <p>The goal embedding modulates the Diffusion Transformer denoising process.</p>
+    </div>
 
-      <div>
-        <span>04</span>
-        <h4>Action trajectory</h4>
-        <p>The policy predicts a sequence of robot actions for the selected primitive.</p>
-      </div>
+    <div class="summary-item">
+      <span>04</span>
+      <h3>Action Trajectory</h3>
+      <p>The policy outputs a sequence of robot actions for the selected primitive.</p>
     </div>
   </div>
 </section>
