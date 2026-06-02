@@ -288,22 +288,34 @@ h1 {
 /* Small media inside the Observations card */
 
 .observation-media {
-  max-width: 260px;
-  margin: 14px auto;
+  width: 100%;
+  max-width: 220px;
+  height: 120px;
+  margin: 14px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  border: 1px solid #e5e7eb;
 }
 
 .observation-media video {
   width: 100%;
-  height: 130px;
+  height: 100%;
   object-fit: contain;
-  border-radius: 12px;
   display: block;
-  border: 1px solid #e5e7eb;
   background: #000;
 }
 
+/* Oculta la imagen dentro de Observations */
 .observation-media img {
-  display: none;
+  display: none !important;
+}
+
+/* Seguridad extra: nada dentro de una tarjeta puede hacerse gigante */
+.summary-item video,
+.summary-item img {
+  max-width: 100%;
+  max-height: 140px;
 }
 
 /* Dark video section */
@@ -379,12 +391,12 @@ footer {
   .video-card video {
     height: 220px;
   }
-
   .observation-media {
-    max-width: 420px;
+    max-width: 260px;
+    height: 130px;
   }
-
+  
   .observation-media video {
-    height: 160px;
+    height: 100%;
   }
 }
