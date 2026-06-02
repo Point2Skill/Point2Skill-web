@@ -104,8 +104,7 @@ h1 {
   background: #000;
 }
 
-.teaser-card video,
-.video-card video {
+.teaser-card video {
   width: 100%;
   display: block;
 }
@@ -180,6 +179,8 @@ h1 {
   box-shadow: 0 20px 55px rgba(15, 23, 42, 0.12);
 }
 
+/* Primitive skills videos */
+
 .video-grid {
   grid-template-columns: repeat(2, minmax(320px, 1fr));
   max-width: 1100px;
@@ -203,7 +204,9 @@ h1 {
   object-fit: cover;
   border-radius: 18px;
   background: #000;
+  display: block;
 }
+
 .video-card h3 {
   text-align: center;
   font-size: 22px;
@@ -214,77 +217,6 @@ h1 {
   text-align: center;
 }
 
-.dark-section {
-  max-width: none;
-  background: #0f172a;
-  color: white;
-}
-
-.dark-section h2,
-.dark-section h3 {
-  color: white;
-}
-
-.dark-section .video-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.dark-section .video-card {
-  background: #111827;
-  border-color: #1e293b;
-}
-
-.dark-section p {
-  color: #cbd5e1;
-}
-
-.result-cards {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-pre {
-  background: #0f172a;
-  color: #e5e7eb;
-  padding: 24px;
-  border-radius: 18px;
-  overflow-x: auto;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #64748b;
-}
-
-@media (max-width: 900px) {
-  .architecture-summary {
-    grid-template-columns: 1fr;
-  }
-
-  .architecture-panel {
-    padding: 10px;
-  }
-
-.observation-media {
-  max-width: 420px;
-  margin: 14px auto;
-}
-
-.observation-media video {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-  border: 1px solid #e5e7eb;
-  background: #000;
-}
-
-.observation-media img {
-  display: none;
-}
-}
 /* Architecture section */
 
 .architecture-section {
@@ -314,6 +246,7 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   margin-top: 28px;
+  align-items: start;
 }
 
 .summary-item {
@@ -352,12 +285,106 @@ footer {
   font-style: normal;
 }
 
+/* Small media inside the Observations card */
+
+.observation-media {
+  max-width: 260px;
+  margin: 14px auto;
+}
+
+.observation-media video {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid #e5e7eb;
+  background: #000;
+}
+
+.observation-media img {
+  display: none;
+}
+
+/* Dark video section */
+
+.dark-section {
+  max-width: none;
+  background: #0f172a;
+  color: white;
+}
+
+.dark-section h2,
+.dark-section h3 {
+  color: white;
+}
+
+.dark-section .video-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dark-section .video-card {
+  background: #111827;
+  border-color: #1e293b;
+}
+
+.dark-section p {
+  color: #cbd5e1;
+}
+
+/* Results */
+
+.result-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+pre {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 24px;
+  border-radius: 18px;
+  overflow-x: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+}
+
+/* Responsive */
+
 @media (max-width: 900px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .method-grid,
+  .video-grid,
+  .video-grid.two,
+  .result-cards,
   .architecture-summary {
     grid-template-columns: 1fr;
   }
 
   .architecture-panel {
     padding: 10px;
+  }
+
+  .video-card video {
+    height: 220px;
+  }
+
+  .observation-media {
+    max-width: 420px;
+  }
+
+  .observation-media video {
+    height: 160px;
   }
 }
