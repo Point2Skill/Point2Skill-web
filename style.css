@@ -258,19 +258,21 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .navbar {
-    padding: 0 20px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .method-grid,
-  .video-grid,
-  .video-grid.two,
-  .result-cards {
+  .architecture-summary {
     grid-template-columns: 1fr;
+  }
+
+  .architecture-panel {
+    padding: 10px;
+  }
+
+  .observation-media {
+    grid-template-columns: 1fr;
+  }
+
+  .observation-media video,
+  .observation-media img {
+    height: 180px;
   }
 }
 /* Architecture section */
