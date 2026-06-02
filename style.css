@@ -266,14 +266,24 @@ footer {
     padding: 10px;
   }
 
-  .observation-media {
-    grid-template-columns: 1fr;
-  }
+.observation-media {
+  max-width: 420px;
+  margin: 14px auto;
+}
 
-  .observation-media video,
-  .observation-media img {
-    height: 180px;
-  }
+.observation-media video {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  border: 1px solid #e5e7eb;
+  background: #000;
+}
+
+.observation-media img {
+  display: none;
+}
 }
 /* Architecture section */
 
