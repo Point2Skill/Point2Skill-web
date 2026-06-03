@@ -291,25 +291,31 @@ h1 {
 }
 
 /* Small media inside the Observations card */
-
 .observation-media {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: 14px;
   width: 100%;
-  max-width: 640px;
+  max-width: 680px;
   margin: 16px 0;
 }
 
 .observation-media video,
 .observation-media img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: 135px;
   border-radius: 14px;
   display: block;
   border: 1px solid #e5e7eb;
   background: #000;
+}
+
+.observation-media video {
+  object-fit: contain;
+}
+
+.observation-media img {
+  object-fit: cover;
 }
 
 @media (max-width: 900px) {
