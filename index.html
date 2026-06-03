@@ -176,6 +176,11 @@ To validate our hypothesis, we perform extensive experiments to evaluate the use
     <span>02</span>
     <h3>3D Goal Point</h3>
     <p>A user or VLM-selected point specifies where the robot should interact.</p>
+      <img
+        src="assets/point2skill.png"
+        alt="Interactive interface for target selection"
+        class="interface-image"
+      />
   </div>
 
   <div class="summary-item">
@@ -213,25 +218,22 @@ To validate our hypothesis, we perform extensive experiments to evaluate the use
       </div>
     </div>
   </section>
-
-  <section id="results" class="section">
+  <section id="results" class="section results-section">
     <h2>Results</h2>
-
-    <div class="result-cards">
-      <div class="result-card">
-        <h3>Ablation Study</h3>
-        <p>We compare no goal, object labels, 2D points, 3D concatenation, and Point2Skill.</p>
-      </div>
-
-      <div class="result-card">
-        <h3>Primitive Evaluation</h3>
-        <p>Point2Skill is evaluated across Pick, Place, Insert, Open, and Close.</p>
-      </div>
-
-      <div class="result-card">
-        <h3>Compositional Tasks</h3>
-        <p>Reusable primitives are composed into long-horizon behaviors.</p>
-      </div>
+  
+    <div class="ablation-card">
+      <h3>Ablation Study</h3>
+  
+      <p>
+        We compare different goal-conditioning strategies, including no goal,
+        object labels, 2D points, 3D concatenation, and Point2Skill.
+      </p>
+  
+      <img
+        src="assets/ablation.png"
+        alt="Ablation study success rate comparison"
+        class="ablation-image"
+      />
     </div>
   </section>
 
