@@ -319,12 +319,11 @@ h1 {
 }
 .interface-image {
   width: 100%;
-  max-width: 420px;
+  max-width: 620px;
   height: auto;
-  object-fit: unset;
   border-radius: 14px;
   display: block;
-  margin: 14px auto;
+  margin: 16px 0;
   border: 1px solid #e5e7eb;
   background: white;
 }
@@ -341,7 +340,6 @@ h1 {
   .method-grid,
   .video-grid,
   .video-grid.two,
-  .result-cards,
   .architecture-summary {
     grid-template-columns: 1fr;
   }
@@ -363,10 +361,28 @@ h1 {
   .observation-media img {
     height: 180px;
   }
-.interface-image {
-  max-width: 100%;
-  height: auto;
-}
+
+  .interface-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .ablation-card {
+    padding: 18px;
+  }
+
+  .ablation-card h3 {
+    font-size: 22px;
+  }
+
+  .ablation-card p {
+    font-size: 15px;
+  }
+
+  .ablation-image {
+    max-width: 100%;
+    border-radius: 14px;
+  }
 }
 /* Dark video section */
 
