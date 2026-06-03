@@ -364,9 +364,16 @@ h1 {
   .observation-media img {
     height: 180px;
   }
-  .interface-image {
-  max-width: 100%;
-  height: 180px;
+.interface-image {
+  width: 100%;
+  max-width: 340px;
+  height: 145px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin: 14px 0;
+  border: 1px solid #e5e7eb;
+  background: white;
 }
 }
 /* Dark video section */
@@ -427,7 +434,6 @@ h1 {
   font-size: 17px;
   color: #475569;
 }
-
 .ablation-image {
   width: 100%;
   max-width: 760px;
