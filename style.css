@@ -319,13 +319,12 @@ h1 {
 }
 .interface-image {
   width: 100%;
-  max-width: 360px;
-  height: 170px;
-  object-fit: contain;
-  object-position: center;
+  max-width: 420px;
+  height: auto;
+  object-fit: unset;
   border-radius: 14px;
   display: block;
-  margin: 14px 0;
+  margin: 14px auto;
   border: 1px solid #e5e7eb;
   background: white;
 }
@@ -367,7 +366,6 @@ h1 {
 .interface-image {
   max-width: 100%;
   height: auto;
-  object-fit: contain;
 }
 }
 /* Dark video section */
