@@ -216,7 +216,10 @@ h1 {
   font-size: 16px;
   text-align: center;
 }
-
+.pick-video {
+  object-fit: cover;
+  object-position: center center;
+}
 /* Architecture section */
 
 .architecture-section {
