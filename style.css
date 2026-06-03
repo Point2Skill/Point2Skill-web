@@ -317,15 +317,15 @@ h1 {
 .observation-media img {
   object-fit: cover;
 }
-
 .interface-image {
   width: 100%;
-  max-width: 420px;
-  height: 180px;
-  object-fit: cover;
+  max-width: 360px;
+  height: 170px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 14px;
   display: block;
-  margin: 16px 0;
+  margin: 14px 0;
   border: 1px solid #e5e7eb;
   background: white;
 }
@@ -365,15 +365,9 @@ h1 {
     height: 180px;
   }
 .interface-image {
-  width: 100%;
-  max-width: 340px;
-  height: 145px;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-  margin: 14px 0;
-  border: 1px solid #e5e7eb;
-  background: white;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 }
 /* Dark video section */
