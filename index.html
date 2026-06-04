@@ -59,7 +59,7 @@ In this work, we augment the language semantic commanding with a 3D geometric gr
 We introduce <b>Point2Skill</b>, a framework for specifying reusable manipulation skills through 3D target points. 
 We instantiate a library of primitives, including <i>Pick</i>, <i>Place</i>, <i>Insert</i>, <i>Open</i>, and <i>Close</i>, each represented as a 3D point goal-conditioned diffusion policies.
 Then, we explore the interaction and concatenation of these primitives to solve complex long horizon tasks, both through
-an interactive click-based interface in which a human can design the robot task or by querying the task description and pointing to a Vision-Language Model (VLM). 
+an interactive click-based interface in which a human can design the robot task or by querying the task description and pointing to a Vision-Language Model. 
 This point-based parameterization abstracts skills away from object identity, enabling a single primitive to generalize across object categories and novel instances. By separating task-level reasoning from motion generation, the proposed framework supports reuse and composition of manipulation skills.
 To validate our hypothesis, we perform extensive experiments to evaluate the usefulness of point-conditioned primitives and perform a set of ablations to study the impact of different goal-conditionings when learning the skill primitives.
   </p>
